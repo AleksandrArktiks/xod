@@ -210,6 +210,7 @@
     color: $sidebar-color-text;
   }
 
+  .inspector-input-wrapper,
   .inspectorTextInput,
   .inspectorSelectInput {
     float: right;
@@ -218,6 +219,39 @@
     font-family: $font-family-mono;
     font-size: $font-size-m;
     line-height: 1.2;
+  }
+  .inspector-input-wrapper {
+    position: relative;
+
+    &.string-focused {
+      &:before, &:after {
+        position: absolute;
+        top: 7px;
+        content: '"';
+        display: block;
+
+        color: $apricot-light;
+        font-family: $font-family-mono;
+        font-size: $font-size-m;
+        font-weight: 400;
+      }
+      &:before {
+        left: 5px;
+      }
+      &:after {
+        right: 5px;
+      }
+      .inspectorTextInput,
+      .inspectorSelectInput {
+        padding-left: 11px;
+        padding-right: 11px;
+      }
+    }
+
+    .inspectorTextInput,
+    .inspectorSelectInput {
+      float: none;
+    }
   }
 }
 

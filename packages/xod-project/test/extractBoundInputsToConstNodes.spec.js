@@ -37,13 +37,13 @@ describe('extractBoundInputsToConstNodes', () => {
       'on-boot': {
         type: XP.getTerminalPath(XP.PIN_DIRECTION.INPUT, XP.PIN_TYPE.PULSE),
         boundValues: {
-          __out__: XP.INPUT_PULSE_PIN_BINDING_OPTIONS.ON_BOOT,
+          __out__: 'ON_BOOT', // Legacy
         },
       },
       continuously: {
         type: XP.getTerminalPath(XP.PIN_DIRECTION.INPUT, XP.PIN_TYPE.PULSE),
         boundValues: {
-          __out__: XP.INPUT_PULSE_PIN_BINDING_OPTIONS.CONTINUOUSLY,
+          __out__: 'CONTINUOUSLY', // Legacy
         },
       },
       'some-output': {
@@ -117,7 +117,9 @@ describe('extractBoundInputsToConstNodes', () => {
         findNodeByType(XP.CONST_NODETYPES[XP.PIN_TYPE.BOOLEAN]),
         findNodeByType(XP.CONST_NODETYPES[XP.PIN_TYPE.STRING]),
         findNodeByType(
-          XP.PULSE_CONST_NODETYPES[XP.INPUT_PULSE_PIN_BINDING_OPTIONS.ON_BOOT]
+          XP.PULSE_CONST_NODETYPES[
+            XP.INPUT_PULSE_PIN_BINDING_OPTIONS.ON_BOOT
+          ]
         ),
         findNodeByType(
           XP.PULSE_CONST_NODETYPES[
